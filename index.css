@@ -1,0 +1,19 @@
+label {
+    width: 100px;
+}
+label.error {
+    color: red;
+}
+input {
+    border : 1px solid #ccc;
+}
+.error input {
+  border: 1px solid red;
+}
+.error {
+  color: red;
+}
+.content {
+    padding: 15px;
+    border: 1px solid #ccc;
+}
