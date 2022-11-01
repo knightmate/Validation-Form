@@ -1,3 +1,7 @@
+const userData={
+
+}
+
 function showError(conteinerParentNode, errorMessage) {
 	conteinerParentNode.className = 'error';
 	var spanElem = document.createElement('span');
@@ -46,5 +50,56 @@ function validate(form) {
 			showError(elems.email.parentNode, ' Please enter a valid Email.');
 			return false;
 		}
-		alert('Success!');
+	alert('Success!');
+
+	storeLoginDetails(elems.mobile.value,elems.password.value);
+
+
+	window.location.href="/login.html"
+
+	 
+
+}
+
+function storeLoginDetails(mobile,password){
+	console.log("data saving",mobile,password)
+	if(!mobile || !password){
+		alert("Error in mobile or password");
+		return;
+	};
+
+ 
+	localStorage.setItem("mobile", mobile);
+	localStorage.setItem("password", password);
+
+	console.log("data saved")
+	
+}
+function Login(form){
+  
+	var elems = form.elements;
+	console.log("Login is clicked")
+	const mobile=elems.mobile.value;
+	const password=elems.password.value;
+
+console.log("userData",userData,"mobile",mobile,"password",password)
+	if(!mobile || !password){
+		alert("Wrong mobile or password");
+		return;
+	};
+
+	let mobile_ = localStorage.getItem("mobile");
+	let password_ = localStorage.getItem("password");
+
+console.log("local storage ",mobile_,password_)
+    if(mobile!=mobile_ || password_!=password){
+		alert("Mobile No does not exists/Password Wrong")
+		return;
+	}
+
+	 alert("Successful Login");
+
+	window.location.href="/HomePage.html"
+
+
 }
