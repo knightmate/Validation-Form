@@ -45,14 +45,23 @@ function validate(form) {
 		}
 
 		resetError(elems.email.parentNode);
+		resetError(elems.mobile.parentNode);
+		resetError(elems.password.parentNode);
+		resetError(elems.lastname.parentNode);
+		if(!elems.lastname.value) {
+			showError(elems.email.parentNode, ' Please enter LastName');
+			return false;
+		}
 		if(!elems.email.value ) {
 			showError(elems.email.parentNode, ' Please enter your Email.');
 			return false;
 		}
+		 
 		else if (!regEmail.test(elems.email.value) == true){
 			showError(elems.email.parentNode, ' Please enter a valid Email.');
 			return false;
-		} if(elems.mobile.value.length!=10){
+		} 
+		if(elems.mobile.value.length!=10){
 			 
 			showError(elems.mobile.parentNode, ' Please enter a valid Email.');
 			return false;
