@@ -73,7 +73,7 @@ function validate(form) {
 		} 
 		if(elems.mobile.value.length!=10){
 			 
-			showError(elems.mobile.parentNode, ' Please enter a valid Email.');
+			showError(elems.mobile.parentNode, ' Please enter a valid Mobile No .Must be length 10');
 			return false;
 		}
 		if(elems.password.value.length<5){
