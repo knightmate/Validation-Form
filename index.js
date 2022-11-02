@@ -22,6 +22,9 @@ function validate(form) {
 	var regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
 
 		resetError(elems.firstname.parentNode);
+
+		 
+
 		if (!elems.firstname.value) {
 			showError(elems.firstname.parentNode, ' Please enter your first name.');
 			return false;
@@ -42,14 +45,24 @@ function validate(form) {
 		}
 
 		resetError(elems.email.parentNode);
-		if(!elems.email.value) {
+		if(!elems.email.value ) {
 			showError(elems.email.parentNode, ' Please enter your Email.');
 			return false;
 		}
 		else if (!regEmail.test(elems.email.value) == true){
 			showError(elems.email.parentNode, ' Please enter a valid Email.');
 			return false;
+		} if(elems.mobile.value.length!=10){
+			 
+			showError(elems.mobile.parentNode, ' Please enter a valid Email.');
+			return false;
 		}
+		if(elems.password.value.length<5){
+			showError(elems.password.parentNode, ' Please enter a Password .Must Length > 5');
+			return false;
+		}
+
+
 	alert('Success!');
 
 	storeLoginDetails(elems.mobile.value,elems.password.value);
@@ -59,6 +72,19 @@ function validate(form) {
 
 	 
 
+}
+
+
+ 
+const  isEmailValid=(email)=>{
+
+    let match = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (email && !match.test(email) || email.length==0) {
+   return false;
+  }
+   
+  return true;
+   
 }
 
 function storeLoginDetails(mobile,password){
