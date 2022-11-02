@@ -25,6 +25,11 @@ function validate(form) {
 
 		 
 
+		if(validateName(elems.firstname.value)==false){
+			showError(elems.firstname.parentNode, 'Only Alphabet allowed');
+			return false;
+		}
+		else
 		if (!elems.firstname.value) {
 			showError(elems.firstname.parentNode, ' Please enter your first name.');
 			return false;
@@ -35,6 +40,11 @@ function validate(form) {
 		}
 
 		resetError(elems.lastname.parentNode);
+		if(!validateName(elems.lastname.value)){
+			showError(elems.lastname.parentNode, ' Only Alphabet allowed');
+			return false;
+		
+		}else
 		if (!elems.lastname.value) {
 			showError(elems.lastname.parentNode, ' Please enter your last name.');
 			return false;
@@ -84,7 +94,13 @@ function validate(form) {
 }
 
 
- 
+ function validateName(name){
+
+	let match = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	let res = /^[a-zA-Z]+$/.test(name);
+  console.log('res',res)
+   return res; 
+ }
 const  isEmailValid=(email)=>{
 
     let match = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
