@@ -1,6 +1,20 @@
 const userData={
 
+
 }
+
+
+const dateControl = document.getElementsByTagName("input");
+
+ 
+console.log('date',dateControl,dateControl.item(1));
+
+dateControl.addEventListener("click",()=>{
+
+	console.log(datePicker.value);
+
+})
+
 
 function showError(conteinerParentNode, errorMessage) {
 	conteinerParentNode.className = 'error';
@@ -113,7 +127,7 @@ const  isEmailValid=(email)=>{
 }
 
 function storeLoginDetails(mobile,password){
-	console.log("data saving",mobile,password)
+	 
 	if(!mobile || !password){
 		alert("Error in mobile or password");
 		return;
