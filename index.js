@@ -2,7 +2,7 @@ const userData={
 
 
 }
-
+console.log("js is loading......._...-......--....");
 
 const dateControl = document.getElementsByTagName("input");
 
